@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "GitHub File List Sorter",
+  "description": "Sort GitHub repository file lists by clicking column headers (Name, Last commit message, Last commit date).",
+  "version": "1.0.0",
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

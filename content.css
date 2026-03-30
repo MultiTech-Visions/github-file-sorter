@@ -1,0 +1,108 @@
+/* Force GitHub's hidden thead to be visible */
+thead.ghfs-visible-thead {
+  display: table-header-group !important;
+  height: auto !important;
+  visibility: visible !important;
+  overflow: visible !important;
+}
+thead.ghfs-visible-thead tr {
+  display: table-row !important;
+  height: auto !important;
+  visibility: visible !important;
+  overflow: visible !important;
+}
+thead.ghfs-visible-thead th {
+  padding: 8px 16px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: var(--fgColor-muted, #9198a1) !important;
+  border-bottom: 1px solid var(--borderColor-muted, #373e47) !important;
+  white-space: nowrap !important;
+  height: auto !important;
+  line-height: 1.5 !important;
+  visibility: visible !important;
+  overflow: visible !important;
+  opacity: 1 !important;
+}
+thead.ghfs-visible-thead th:last-child {
+  text-align: right !important;
+}
+/* Injected thead styling to match GitHub's look */
+thead.ghfs-injected-thead th {
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fgColor-muted, #9198a1);
+  border-bottom: 1px solid var(--borderColor-muted, #373e47);
+  text-align: left;
+  white-space: nowrap;
+}
+thead.ghfs-injected-thead th:first-child {
+  padding: 0;
+  width: 0;
+  overflow: hidden;
+}
+thead.ghfs-injected-thead th:last-child {
+  text-align: right;
+}
+/* Make sortable headers look clickable */
+table thead th.ghfs-sortable {
+  cursor: pointer !important;
+  user-select: none !important;
+  position: relative !important;
+  transition: background-color 0.15s ease;
+}
+table thead th.ghfs-sortable:hover {
+  background-color: rgba(139, 148, 158, 0.12);
+}
+/* Sort arrow indicators */
+table thead th.ghfs-sortable::after {
+  content: '⇅';
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 11px;
+  opacity: 0.35;
+  vertical-align: middle;
+  transition: opacity 0.15s ease;
+}
+table thead th.ghfs-sort-asc::after {
+  content: '▲';
+  opacity: 0.85;
+  font-size: 10px;
+  color: #58a6ff;
+}
+table thead th.ghfs-sort-desc::after {
+  content: '▼';
+  opacity: 0.85;
+  font-size: 10px;
+  color: #58a6ff;
+}
+/* Subtle highlight on the active sorted column */
+table thead th.ghfs-sort-asc,
+table thead th.ghfs-sort-desc {
+  background-color: rgba(88, 166, 255, 0.06);
+}
+/* ── File tree date labels ──────────────────────────────── */
+.ghfs-tree-date {
+  margin-left: auto;
+  padding-left: 6px;
+  font-size: 11px;
+  color: var(--fgColor-muted, #8b949e);
+  white-space: nowrap;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+.ghfs-tree-date:hover {
+  opacity: 1;
+}
+/* Ensure the tree item content row has space for date */
+[role="treeitem"] [class*="item-content"] {
+  flex-wrap: nowrap !important;
+}
+.ghfs-tree-date-wrap {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
