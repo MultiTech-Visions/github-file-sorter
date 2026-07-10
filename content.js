@@ -259,8 +259,10 @@
       const resp = await fetch(url, { headers: { 'Accept': 'application/json' } });
       if (!resp.ok) return null;
       const data = await resp.json();
-      treeCommitCache[key] = data;
-      return data;
+      // GitHub wraps the per-file map under an "entries" key
+      const entries = data && data.entries ? data.entries : data;
+      treeCommitCache[key] = entries;
+      return entries;
     } catch { return null; }
   }
   function isTreeDir(item) {
